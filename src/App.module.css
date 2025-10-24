@@ -1,0 +1,62 @@
+:root {
+  --row-gap: 20px;
+  --column-gap: 30px;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.contentContainer {
+  display: grid;
+  grid-template-columns: 200px auto;
+  padding: 50px 150px;
+  column-gap: var(--column-gap);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--row-gap);
+}
+
+.updateBtn,
+.deleteBtn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  width: 200px;
+  height: 48px;
+}
+
+.updateBtn {
+  background-color: #4b81a7;
+  color: white;
+}
+
+.updateBtn:hover {
+  background-color: #326182;
+}
+
+.deleteBtn {
+  background-color: #a74b4b;
+  color: #ffffff;
+}
+
+.deleteBtn:hover {
+  background-color: #893939;
+}
+
+.bookList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  row-gap: var(--row-gap);
+  column-gap: var(--column-gap);
+  align-content: flex-start;
+}
