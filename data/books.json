@@ -6,7 +6,11 @@
     "price": "$21.99 - $44.20",
     "image": "https://itbook.store/img/books/9780321812186.png",
     "url": "https://itbook.store/books/9780321812186",
-    "author": "David Herman"
+    "author": "David Herman",
+    "Publisher": "Addison-Wesley",
+    "Publication Year": "2012",
+    "Pages": "240",
+    "Language": "English"
   },
   {
     "title": "Beginning JavaScript, 3nd Edition",
@@ -15,6 +19,10 @@
     "price": "$19.02 - $75.00",
     "image": "https://itbook.store/img/books/9781484243947.png",
     "url": "https://itbook.store/books/9781484243947",
-    "author": "Russ Ferguson"
+    "author": "Russ Ferguson",
+    "Publisher": "Apress",
+    "Publication Year": "2019",
+    "Pages": "206",
+    "Language": "English"
   }
 ]

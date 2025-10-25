@@ -33,7 +33,11 @@ export default function App() {
       bookLink: b.url,
       bookTitle: b.title,
       bookPrice: b.price,
-      bookAuthor: b.subtitle || "",
+      bookAuthor: b.author,
+      publisher: b.Publisher,
+      publication: b["Publication Year"],
+      pages: b.Pages,
+      language: b.Language,
       selected: false,
     }));
   });
