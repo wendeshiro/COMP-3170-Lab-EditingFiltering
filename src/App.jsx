@@ -76,6 +76,10 @@ export default function App() {
     setBooks((current) => current.filter((book) => !book.selected));
   };
 
+  // Publisher filter state (for filtering the list by publisher)
+  const publishers = Array.from(new Set(books.map((b) => b.publisher).filter(Boolean))); // get unique, non-empty publishers; convert it to Array
+  const [publisherFilter, setPublisherFilter] = useState("");
+
   const handleEditClick = () => {
     const selected = books.filter((b) => b.selected); // keep only selected=true books
     if (selected.length === 0) {
@@ -94,6 +98,18 @@ export default function App() {
   return (
     <div className={styles.appContainer}>
       <Header />
+      <div className={styles.filters}>
+        <label>Filter by Publisher:</label>
+        <select value={publisherFilter} onChange={(e) => setPublisherFilter(e.target.value)}>
+          {/* "value" of a <select> represents the currently selected option’s value; target = selected option */}
+          <option value="">All</option>
+          {publishers.map((p) => (
+            <option key={p} value={p}>
+              {p}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className={styles.contentContainer}>
         <div className={styles.actions}>
           <Modal ref={modalRef}>
@@ -118,20 +134,23 @@ export default function App() {
             Delete
           </button>
         </div>
+
         <div className={styles.bookList}>
-          {books.map((bookData) => (
-            <Book
-              key={bookData.id}
-              imgSrc={bookData.imgSrc}
-              imgAlt={bookData.bookTitle}
-              bookLink={bookData.bookLink}
-              bookTitle={bookData.bookTitle}
-              bookPrice={bookData.bookPrice}
-              bookAuthor={bookData.bookAuthor}
-              selected={bookData.selected}
-              onSelect={() => selectBook(bookData.id)}
-            />
-          ))}
+          {books
+            .filter((book) => (publisherFilter === "" ? true : book.publisher === publisherFilter))
+            .map((bookData) => (
+              <Book
+                key={bookData.id}
+                imgSrc={bookData.imgSrc}
+                imgAlt={bookData.bookTitle}
+                bookLink={bookData.bookLink}
+                bookTitle={bookData.bookTitle}
+                bookPrice={bookData.bookPrice}
+                bookAuthor={bookData.bookAuthor}
+                selected={bookData.selected}
+                onSelect={() => selectBook(bookData.id)}
+              />
+            ))}
         </div>
       </div>
       <Footer />

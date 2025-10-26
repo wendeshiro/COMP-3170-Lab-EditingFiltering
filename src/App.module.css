@@ -13,7 +13,7 @@
 .contentContainer {
   display: grid;
   grid-template-columns: 200px auto;
-  padding: 50px 150px;
+  padding: 20px 150px;
   column-gap: var(--column-gap);
 }
 
@@ -59,4 +59,21 @@
   row-gap: var(--row-gap);
   column-gap: var(--column-gap);
   align-content: flex-start;
+}
+
+.filters {
+  margin-left: 150px;
+  margin-top: 20px;
+
+  label {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #283044;
+  }
+  select {
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
 }
